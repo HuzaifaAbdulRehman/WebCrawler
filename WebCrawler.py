@@ -1,12 +1,12 @@
-import urllib.request
-from bs4 import BeautifulSoup
-import sys
-import re
-import urllib.parse
-import hashlib
-import string
-import codecs
-from nltk.stem import PorterStemmer
+import urllib.request          # HTTP client for sending GET requests and fetching web pages
+from bs4 import BeautifulSoup  # HTML parser to extract text and links from web pages
+import sys                     # System utilities for error handling and max integer values
+import re                      # Regular expressions for URL validation and text tokenization
+import urllib.parse            # URL manipulation - converts relative URLs to absolute URLs
+import hashlib                 # SHA-256 hashing for duplicate content detection
+import string                  # Punctuation constants for text cleaning
+import codecs                  # Character encoding/decoding for handling special characters
+from nltk.stem import PorterStemmer  # Stemming algorithm to reduce words to root form (running -> run)
 
 
 class WebCrawler:

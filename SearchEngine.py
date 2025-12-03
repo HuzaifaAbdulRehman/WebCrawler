@@ -1,14 +1,14 @@
-from WebCrawler import WebCrawler
-import pickle
-import sys
-import argparse
-import numpy as np
-import random
-from sklearn.metrics.pairwise import euclidean_distances
-from nltk.stem import PorterStemmer
-import math
-import csv
-from textwrap import wrap
+from WebCrawler import WebCrawler                        # Parent class with crawling functionality
+import pickle                                            # Serialization - saves/loads index to/from disk
+import sys                                               # System utilities for max integer in clustering
+import argparse                                          # Command-line argument parsing (-u, -p, -s, -t flags)
+import numpy as np                                       # Matrix operations for document clustering
+import random                                            # Random sampling to select cluster leaders
+from sklearn.metrics.pairwise import euclidean_distances # Distance calculation between document vectors
+from nltk.stem import PorterStemmer                      # Stemming for query processing (search -> search)
+import math                                              # Logarithms and square root for TF-IDF calculation
+import csv                                               # CSV parsing for thesaurus file
+from textwrap import wrap                                # Text wrapping for displaying search result snippets
 
 
 class SearchEngine(WebCrawler):
