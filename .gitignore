@@ -1,0 +1,87 @@
+# ===================================
+# Python Web Crawler Project
+# .gitignore
+# ===================================
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+
+# Python distributions
+*.egg
+*.egg-info/
+Web_Crawler.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.code-workspace
+
+# Output files (generated data - not needed in repo)
+Output/exported_index.obj
+Output/tf_matrix.csv
+Output/*.obj
+Output/*.csv
+
+# Temporary and system files
+nul
+*.tmp
+*.log
+*.bak
+.cache/
+
+# OS specific files
+Thumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Git and GitHub
+.git/
+.gitattributes
+
+# Claude AI folder (local assistant files)
+.claude/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Documentation drafts (keep only final versions)
+*_draft.md
+*_old.md
+*_backup.md
+
+# Personal/internal documentation (not for GitHub)
+FINAL_CHECKLIST.md
+GITHUB_UPLOAD_STEPS.md
+WHAT_WILL_BE_SHARED.md
+FILES_FOR_GITHUB.txt
+
+# Personal notes
+notes.txt
+TODO.txt
+scratch.py
