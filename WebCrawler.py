@@ -55,8 +55,18 @@ class WebCrawler:
 
     def get_robots_txt(self):
         """
-        Fetch and parse robots.txt following RFC 9309 standard
-        This tells us which paths we're allowed or forbidden to crawl
+        WHAT IS ROBOTS.TXT?
+        - A text file placed at website root (e.g., google.com/robots.txt)
+        - Website owners use it to tell crawlers which pages they can/cannot access
+        - It's a voluntary protocol - crawlers choose to respect it (ethical crawling)
+        - Format: "Disallow: /private/" means don't crawl the /private/ folder
+        - Defined in RFC 9309 (Robots Exclusion Protocol)
+
+        Example robots.txt:
+            User-agent: *
+            Disallow: /admin/
+            Allow: /public/
+
         Returns dict with 'Allowed' and 'Disallowed' URL lists
         """
         result_data_set = {"Disallowed": [], "Allowed": []}
