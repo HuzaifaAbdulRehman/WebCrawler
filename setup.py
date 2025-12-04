@@ -5,7 +5,7 @@ setup(
     version='2.0',
     packages=[],
     url='https://github.com/HuzaifaAbdulRehman/WebCrawler',
-    license='MIT',
+    license='Educational Project',
     author='Huzaifa Abdul Rehman, Meeran uz Zaman, Abdul Moiz Hossain',
     author_email='23k0782@nu.edu.pk',
     description='Intelligent Web Crawler and Search Engine - CS3001 Computer Networks Project',
