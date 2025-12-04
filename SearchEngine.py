@@ -238,14 +238,12 @@ class SearchEngine(WebCrawler):
     def display_clusters(self):
         if self.clusters is not None:
             for leader, followers in self.clusters.items():
-                print("Doc" + str(leader) + ":", end="")
-
                 if len(followers) == 0:
-                    print("\tNo followers", end="")
-                print()
-
-                for follower in followers:
-                    print("\t\t+ Doc" + str(follower[0]) + " (Distance: " + str(follower[1]) + ")")
+                    print("Doc" + str(leader) + ": No followers")
+                else:
+                    print("Doc" + str(leader) + ":")
+                    for follower in followers:
+                        print("  +  Doc" + str(follower[0]) + " (Distance: " + "{:.4f}".format(follower[1]) + ")")
                 print()
         else:
             print("Documents not yet clustered.")
