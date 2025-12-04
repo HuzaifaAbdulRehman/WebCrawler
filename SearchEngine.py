@@ -77,11 +77,15 @@ class SearchEngine(WebCrawler):
 
         Useful for finding similar documents and organizing search results
         """
-        X = np.matrix([list(x) for x in zip(*self.frequency_matrix)])
+        # Use np.array instead of deprecated np.matrix for NumPy 2.x compatibility
+        X = np.array([list(x) for x in zip(*self.frequency_matrix)])
 
         # Min-max normalization to scale all values between 0 and 1
         X_max, X_min = X.max(), X.min()
-        X = (X - X_min) / (X_max - X_min)
+        if X_max - X_min > 0:
+            X = (X - X_min) / (X_max - X_min)
+        else:
+            X = np.zeros_like(X)
 
         if len(X) < k:
             print("Warning: not enough documents to pick " + str(k) + " leaders.")
@@ -99,12 +103,13 @@ class SearchEngine(WebCrawler):
             min_dist_index = -1
 
             for l in leader_indices:
-                cur_dist = euclidean_distances(X[f], X[l])
+                # Reshape to 2D arrays as required by euclidean_distances
+                cur_dist = euclidean_distances(X[f].reshape(1, -1), X[l].reshape(1, -1))[0][0]
                 if cur_dist < min_dist:
                     min_dist = cur_dist
                     min_dist_index = l
 
-            clusters[min_dist_index].append((f, min_dist[0][0]))
+            clusters[min_dist_index].append((f, min_dist))
 
         self.clusters = clusters
 

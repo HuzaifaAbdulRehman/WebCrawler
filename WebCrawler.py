@@ -40,16 +40,32 @@ class WebCrawler:
         """Generate a human-readable crawl report showing statistics and discovered URLs"""
         report = "\nPages crawled: " + str(self.num_pages_crawled) \
                  + "\nPages indexed: " + str(self.num_pages_indexed) \
-                 + "\nVisited URLs: " + str(len(self.visited_urls)) \
-                 + "\n\nOutgoing URLs: " + "\n  +  " + "\n  +  ".join(self.outgoing_urls) \
-                 + "\n\nBroken URLs: " + "\n  +  " + "\n  +  ".join(self.broken_urls) \
-                 + "\n\nGraphic URLs: " + "\n  +  " + "\n  +  ".join(self.graphic_urls) \
-                 + "\n\nDuplicate URLs:\n"
+                 + "\nVisited URLs: " + str(len(self.visited_urls))
 
-        for key in range(len(self.duplicate_urls.keys())):
-            report += "\t +  Doc" + str(key + 1) + ":\n"
-            for val in list(self.duplicate_urls.values())[key]:
-                report += "\t\t  +  " + val + "\n"
+        # Only show URL lists if they contain items
+        if self.outgoing_urls:
+            report += "\n\nOutgoing URLs:\n  +  " + "\n  +  ".join(self.outgoing_urls)
+        else:
+            report += "\n\nOutgoing URLs: None"
+
+        if self.broken_urls:
+            report += "\n\nBroken URLs:\n  +  " + "\n  +  ".join(self.broken_urls)
+        else:
+            report += "\n\nBroken URLs: None"
+
+        if self.graphic_urls:
+            report += "\n\nGraphic URLs:\n  +  " + "\n  +  ".join(self.graphic_urls)
+        else:
+            report += "\n\nGraphic URLs: None"
+
+        if self.duplicate_urls:
+            report += "\n\nDuplicate URLs:"
+            for key in range(len(self.duplicate_urls.keys())):
+                report += "\n  +  Doc" + str(key + 1) + ":"
+                for val in list(self.duplicate_urls.values())[key]:
+                    report += "\n      +  " + val
+        else:
+            report += "\n\nDuplicate URLs: None"
 
         return report
 
