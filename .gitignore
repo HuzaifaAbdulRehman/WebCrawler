@@ -85,3 +85,6 @@ FILES_FOR_GITHUB.txt
 notes.txt
 TODO.txt
 scratch.py
+
+# Documentation folder
+docs/
